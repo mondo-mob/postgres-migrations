@@ -1,3 +1,12 @@
+# FORKED REPOSITORY REASON
+This library does not have native support to allow the `migrations` table to be created under any specific schema (so by default it's the search path).
+There are requests for this feature, but the workaround is to set the `search_path` for the PG client to be the schema you want to work with. The problem
+is that the code that checks if the `migrations` table exists does not use `search_path` but the code that creates and access the table does rely on this.
+
+Once this PR is merged we can use the standard lib: https://github.com/ThomWright/postgres-migrations/pull/33
+
+Custom `package.json` for publishing this lib are via the `release` branch.
+
 # Postgres migrations
 
 [![Travis](https://img.shields.io/travis/ThomWright/postgres-migrations.svg)](https://travis-ci.org/ThomWright/postgres-migrations)
